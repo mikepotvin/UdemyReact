@@ -1,0 +1,10 @@
+.App {
+  width: 30%;
+  margin: auto;
+  float: center;
+  border: 1px solid black;
+  box-shadow: 0 2px 3px black;
+  padding: 16px;
+  text-align: 'center';
+  background-color: white;
+}
