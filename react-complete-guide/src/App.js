@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+
 class App extends Component {
   state = {
     persons: [
@@ -31,7 +32,7 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({persons});
+    this.setState({ persons });
 
   }
 
@@ -41,7 +42,7 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -63,14 +64,27 @@ class App extends Component {
           })}
         </div>
       );
+
+      style.backgroundColor = 'red'
     }
 
+    const classesArray = [];
+    if (this.state.persons.length <= 2) {
+      classesArray.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classesArray.push('bold');
+    }
+
+    const classes = classesArray.join(' ');
+
     return (
-      <div className="App">
-        <h1> Gogo! </h1>
-        <button style={style} onClick={this.togglePersonsHandler}> Toggle Persons </button>
-        {persons}
-      </div>
+        <div className="App">
+          <h1> Gogo! </h1>
+          <p className={classes}> this is working! </p>
+          <button style={style} onClick={this.togglePersonsHandler}> Toggle Persons </button>
+          {persons}
+        </div>
     )
   }
 }
